@@ -1,0 +1,71 @@
+from django.conf.urls import url
+from . import views
+
+
+urlpatterns = [
+    url(
+        r'^api/v1/students/(?P<pk>[0-9]+)$',
+        views.get_delete_update_student,
+        name='get_delete_update_student'
+    ),
+    url(
+        r'^api/v1/students/$',
+        views.get_post_students,
+        name='get_post_students'
+    ),
+    url(
+        r'^api/v1/students/:course_id/(?P<pk>[0-9]+)$',
+        views.get_students_in_course,
+        name='get_students_in_course'
+    ),
+    url(
+        r'^api/v1/students/:name/(?P<name>\w+)$',
+        views.get_students_by_name,
+        name='get_students_by_name'
+    ),
+    url(
+        r'^api/v1/teachers/(?P<pk>[0-9]+)$',
+        views.get_delete_update_teacher,
+        name='get_delete_update_teacher'
+    ),
+    url(
+        r'^api/v1/teachers/$',
+        views.get_post_teachers,
+        name='get_post_teachers'
+    ),
+    url(
+        r'^api/v1/courses/(?P<pk>[0-9]+)$',
+        views.get_delete_update_course,
+        name='get_delete_update_course'
+    ),
+    url(
+        r'^api/v1/courses/$',
+        views.get_post_courses,
+        name='get_post_courses'
+    ),
+    url(
+        r'^api/v1/courses/:student_id/(?P<pk>[0-9]+)$',
+        views.get_courses_taken_by_student,
+        name='get_courses_taken_by_student'
+    ),
+    url(
+        r'^api/v1/courses/:title/(?P<title>\w+)$',
+        views.get_courses_by_title,
+        name='get_courses_by_title'
+    ),
+    url(
+        r'^api/v1/courses/:start-date/(?P<date>\d{4}-\d{2}-\d{2})$',
+        views.get_courses_by_start_date,
+        name='get_courses_by_start_date'
+    ),
+    url(
+        r'^api/v1/enrollments/(?P<pk>[0-9]+)$',
+        views.get_delete_update_enrollment,
+        name='get_delete_update_enrollment'
+    ),
+    url(
+        r'^api/v1/enrollments/$',
+        views.get_post_enrollments,
+        name='get_post_enrollments'
+    ),
+]
